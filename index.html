@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <title>Task Biolab</title>
+  </head>
+
+  <body>
+    <nav class="navbar bg-white" style="background-color: #ffffff">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img
+            src="data:image/png;base64,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"
+            alt="Logo"
+            width="70"
+            height="54"
+            class="d-inline-block align-text-top"
+          />
+        </a>
+      </div>
+    </nav>
+    <div class="container-fluid">
+      <div class="row text-center mt-3">
+        <div class="col-lg-9">
+          <div class="row">
+            <div class="col-2">
+              <div class="card mb-3">
+                <a href="">
+                  <img
+                    src="https://m.media-amazon.com/images/I/61wfpJ3tAmL._AC_UL480_FMwebp_QL65_.jpg"
+                    class="card-img-top img-fluid"
+                    alt="Medicine Image"
+                  />
+                </a>
+                <p>Ibuprofen</p>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="card mb-3">
+                <a href="">
+                  <img
+                    src="https://m.media-amazon.com/images/I/61wfpJ3tAmL._AC_UL480_FMwebp_QL65_.jpg"
+                    class="card-img-top img-fluid"
+                    alt="Medicine Image"
+                  />
+                </a>
+                <p>Ibuprofen</p>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="card mb-3">
+                <a href="">
+                  <img
+                    src="https://m.media-amazon.com/images/I/61wfpJ3tAmL._AC_UL480_FMwebp_QL65_.jpg"
+                    class="card-img-top img-fluid"
+                    alt="Medicine Image"
+                  />
+                </a>
+                <p>Ibuprofen</p>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="card mb-3">
+                <a href="">
+                  <img
+                    src="https://m.media-amazon.com/images/I/61wfpJ3tAmL._AC_UL480_FMwebp_QL65_.jpg"
+                    class="card-img-top img-fluid"
+                    alt="Medicine Image"
+                  />
+                </a>
+                <p>Ibuprofen</p>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="card mb-3">
+                <a href="">
+                  <img
+                    src="https://m.media-amazon.com/images/I/61wfpJ3tAmL._AC_UL480_FMwebp_QL65_.jpg"
+                    class="card-img-top img-fluid"
+                    alt="Medicine Image"
+                  />
+                </a>
+                <p>Ibuprofen</p>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="card mb-3">
+                <a href="">
+                  <img
+                    src="https://m.media-amazon.com/images/I/61wfpJ3tAmL._AC_UL480_FMwebp_QL65_.jpg"
+                    class="card-img-top img-fluid"
+                    alt="Medicine Image"
+                  />
+                </a>
+                <p>Ibuprofen</p>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="card mb-3">
+                <a href="">
+                  <img
+                    src="https://m.media-amazon.com/images/I/61wfpJ3tAmL._AC_UL480_FMwebp_QL65_.jpg"
+                    class="card-img-top img-fluid"
+                    alt="Medicine Image"
+                  />
+                </a>
+                <p>Ibuprofen</p>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="card mb-3">
+                <a href="">
+                  <img
+                    src="https://m.media-amazon.com/images/I/61wfpJ3tAmL._AC_UL480_FMwebp_QL65_.jpg"
+                    class="card-img-top img-fluid"
+                    alt="Medicine Image"
+                  />
+                </a>
+                <p>Ibuprofen</p>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="card mb-3">
+                <a href="">
+                  <img
+                    src="https://m.media-amazon.com/images/I/61wfpJ3tAmL._AC_UL480_FMwebp_QL65_.jpg"
+                    class="card-img-top img-fluid"
+                    alt="Medicine Image"
+                  />
+                </a>
+                <p>Ibuprofen</p>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="card mb-3">
+                <a href="">
+                  <img
+                    src="https://m.media-amazon.com/images/I/61wfpJ3tAmL._AC_UL480_FMwebp_QL65_.jpg"
+                    class="card-img-top img-fluid"
+                    alt="Medicine Image"
+                  />
+                </a>
+                <p>Ibuprofen</p>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="card mb-3">
+                <a href="">
+                  <img
+                    src="https://m.media-amazon.com/images/I/61wfpJ3tAmL._AC_UL480_FMwebp_QL65_.jpg"
+                    class="card-img-top img-fluid"
+                    alt="Medicine Image"
+                  />
+                </a>
+                <p>Ibuprofen</p>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="card mb-3">
+                <a href="">
+                  <img
+                    src="https://m.media-amazon.com/images/I/61wfpJ3tAmL._AC_UL480_FMwebp_QL65_.jpg"
+                    class="card-img-top img-fluid"
+                    alt="Medicine Image"
+                  />
+                </a>
+                <p>Ibuprofen</p>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="card mb-3">
+                <a href="">
+                  <img
+                    src="https://m.media-amazon.com/images/I/61wfpJ3tAmL._AC_UL480_FMwebp_QL65_.jpg"
+                    class="card-img-top img-fluid"
+                    alt="Medicine Image"
+                  />
+                </a>
+                <p>Ibuprofen</p>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="card mb-3">
+                <a href="">
+                  <img
+                    src="https://m.media-amazon.com/images/I/61wfpJ3tAmL._AC_UL480_FMwebp_QL65_.jpg"
+                    class="card-img-top img-fluid"
+                    alt="Medicine Image"
+                  />
+                </a>
+                <p>Ibuprofen</p>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="card mb-3">
+                <a href="">
+                  <img
+                    src="https://m.media-amazon.com/images/I/61wfpJ3tAmL._AC_UL480_FMwebp_QL65_.jpg"
+                    class="card-img-top img-fluid"
+                    alt="Medicine Image"
+                  />
+                </a>
+                <p>Ibuprofen</p>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="card mb-3">
+                <a href="">
+                  <img
+                    src="https://m.media-amazon.com/images/I/61wfpJ3tAmL._AC_UL480_FMwebp_QL65_.jpg"
+                    class="card-img-top img-fluid"
+                    alt="Medicine Image"
+                  />
+                </a>
+                <p>Ibuprofen</p>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="card mb-3">
+                <a href="">
+                  <img
+                    src="https://m.media-amazon.com/images/I/61wfpJ3tAmL._AC_UL480_FMwebp_QL65_.jpg"
+                    class="card-img-top img-fluid"
+                    alt="Medicine Image"
+                  />
+                </a>
+                <p>Ibuprofen</p>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="card mb-3">
+                <a href="">
+                  <img
+                    src="https://m.media-amazon.com/images/I/61wfpJ3tAmL._AC_UL480_FMwebp_QL65_.jpg"
+                    class="card-img-top img-fluid"
+                    alt="Medicine Image"
+                  />
+                </a>
+                <p>Ibuprofen</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="row">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>AcetaminophenMark</td>
+                  <td>20$</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Ibuprofen</td>
+                  <td>30$</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Ibuprofen</td>
+                  <td>30$</td>
+                </tr>
+                <tr>
+                  <th scope="row">4</th>
+                  <td>Ibuprofen</td>
+                  <td>30$</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <input type="text" id="result" readonly />
+            <table>
+              <div class="col-4">
+                <tr>
+                  <td>
+                    <button
+                      onclick="clearResult()"
+                      style="background-color: rgb(100, 114, 152); color: white"
+                    >
+                      C
+                    </button>
+                  </td>
+                  <td><button onclick="appendInput('/')">/</button></td>
+                  <td><button onclick="appendInput('*')">*</button></td>
+                  <td><button onclick="appendInput('-')">-</button></td>
+                </tr>
+              </div>
+              <div class="col-4">
+                <tr>
+                  <td><button onclick="appendInput('7')">7</button></td>
+                  <td><button onclick="appendInput('8')">8</button></td>
+                  <td><button onclick="appendInput('9')">9</button></td>
+                  <td><button onclick="appendInput('+')">+</button></td>
+                </tr>
+              </div>
+              <div class="col-4">
+                <tr>
+                  <td><button onclick="appendInput('4')">4</button></td>
+                  <td><button onclick="appendInput('5')">5</button></td>
+                  <td><button onclick="appendInput('6')">6</button></td>
+                  <td><button onclick="appendInput('.')">.</button></td>
+                </tr>
+              </div>
+              <div class="col-4">
+                <tr>
+                  <td><button onclick="appendInput('1')">1</button></td>
+                  <td><button onclick="appendInput('2')">2</button></td>
+                  <td><button onclick="appendInput('3')">3</button></td>
+                  <td><button onclick="appendInput('.')">%</button></td>
+                </tr>
+              </div>
+              <div class="col-4">
+                <tr>
+                  <td colspan="2">
+                    <button
+                      onclick="appendInput('0')"
+                      style="background-color: rgb(98, 113, 152); color: white"
+                    >
+                      0
+                    </button>
+                  </td>
+                  <td colspan="2">
+                    <button
+                      onclick="calculate()"
+                      style="background-color: rgb(209, 63, 48); color: white"
+                    >
+                      =
+                    </button>
+                  </td>
+                </tr>
+              </div>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
