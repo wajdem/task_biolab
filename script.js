@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <a href="#" id="cardLink${index}">
               <img src="${item.imgSrc}" class="card-img-top img-fluid" alt="Medicine Image">
             </a>
-            <p>${item.name}</p>
+            <p class="name">${item.name}</p>
           `;
           card.appendChild(cardContent);
           cardRow.appendChild(card);
