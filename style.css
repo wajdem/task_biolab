@@ -17,18 +17,7 @@ table {
   font-size: 1em;
   color: #333;
 
-}
 
-@media screen and (max-width: 768px) {
-  .name {
-    font-size: 0.9em;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .name {
-    font-size: 5px !important;
-  }
 }
 
 button {
